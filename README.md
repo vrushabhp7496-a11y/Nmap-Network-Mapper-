@@ -57,7 +57,68 @@ In this repository, I have documented my **hands-on Nmap labs** including:
 
 ---
 
-> 💡 All scans were performed in an **isolated virtual lab** (VirtualBox) on my own systems. No production networks were harmed.
+> 💡 All scans were performed in an **isolated virtual lab** (VirtualBox) on my own systems. No production networks were.
+
+---------------------
+
+### Lets start understanding Nmap 
+
+---
+
+1. Live host discovery using ARP scan :
+
+- When privileaged user tries to scan targets on local netwrok nmap uses ARP request.
+- When privileaged user tries to scan target outside the local network nmap uses ICPM requests.
+- When unprivileaged user tries to scan target outside the local network nmap uses TCP 3way handshake on port 443 and port 80
+
+---
+
+### Host Discovery :
+- If you want to find live host without port scan : nmap -sN_ip address
+- If you want to skip host discovery : nmap -Pn_ip address
+- If you want nmap only ARP scanning without port scanning : nmap -PR -sn target (Here PR indicates that you want only ARP scanning)
+
+---
+
+### Host Discover using ICMP :
+- ICMP request are used when host is on another subnet because ARP request dont cross Routers.
+- But here ICMP have some issue because firewall and windows or server are configured to block unnecessary ICMP requests.
+- So ICMP have 3 main types i mentioned below.
+
+---
+
+1. if you want to ICMP ping scan without port scan : nmap -PE -sn target.
+2. As i said above ICMP is blocked by default we can use ICMP timestamp request : nmap -PP -sn target ( here PP stands for timestamp request)
+3. Similialry nmap uses address mask queries  to use this command should be : nmap -PM -sn target.
+
+---
+
+### SUMMARY :
+- Regarding icmp scan i listed all commands below
+  1. To discover host using icmp echo : nmap -PE -sn target
+     - This is the type 8 request.
+     - Server reply with type 0 request.
+     - Firewall can block
+     - normal ping request
+ ---
+
+ 
+  2. To discover host using icmp timestamp : nmap -PP -sn target
+     - Trhis is the type 13 request
+     - Server send type 14 request in the form of current time
+     - Always blocked by firewall but sometime allowed
+     - When ping is blocked use timestamp
+  ---
+
+  
+  3. To discover host using icmp address mask :nmap -PM -sn target
+     - This is type 17 request
+     - Server responds with type 18 reply with subnet mask adress
+     - used when we want to know subnet mask
+     - firewall blocks but sometime its allowed
+     - used as last option when both of ping and timestamp is blocked.
+
+
   
   
   
