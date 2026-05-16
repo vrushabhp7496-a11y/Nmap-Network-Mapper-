@@ -124,13 +124,13 @@ In this repository, I have documented my **hands-on Nmap labs** including:
 
    ### Commands :
 
--ARP Scan :	sudo nmap -PR -sn MACHINE_IP/24
--ICMP Echo Scan :	 nmap -PE -sn MACHINE_IP/24
--ICMP Timestamp Scan :	 nmap -PP -sn MACHINE_IP/24
--ICMP Address Mask Scan :	 nmap -PM -sn MACHINE_IP/24
--TCP SYN Ping Scan :	nmap -PS22,80,443 -sn MACHINE_IP/30
--TCP ACK Ping Scan :	 nmap -PA22,80,443 -sn MACHINE_IP/30
--UDP Ping Scan :	 nmap -PU53,161,162 -sn MACHINE_IP/30
+- ARP Scan :	sudo nmap -PR -sn MACHINE_IP/24
+- ICMP Echo Scan :	 nmap -PE -sn MACHINE_IP/24
+- ICMP Timestamp Scan :	 nmap -PP -sn MACHINE_IP/24
+- ICMP Address Mask Scan :	 nmap -PM -sn MACHINE_IP/24
+- TCP SYN Ping Scan :	nmap -PS22,80,443 -sn MACHINE_IP/30
+- TCP ACK Ping Scan :	 nmap -PA22,80,443 -sn MACHINE_IP/30
+- UDP Ping Scan :	 nmap -PU53,161,162 -sn MACHINE_IP/30
 
 
   
