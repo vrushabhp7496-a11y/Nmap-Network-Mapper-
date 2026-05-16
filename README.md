@@ -51,7 +51,7 @@ In this repository, I have documented my **hands-on Nmap labs** including:
 | File / Folder | Description |
 |---------------|-------------|
 | `README.md` | Complete guide with commands, screenshots, and use cases |
-| `cheatsheet.md` | Quick reference of the most useful Nmap commands |
+| `cheatsheet` | Quick reference of the most useful Nmap commands |
 | `screenshots/` | Proof of work – real scan outputs from my lab |
 | `examples/` | Real-world scanning scenarios with explanations |
 
